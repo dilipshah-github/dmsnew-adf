@@ -1,0 +1,14 @@
+{
+	"name": "HTTP_Logo_rebrickable_source_themes",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"description": "CVS source file Theames",
+		"annotations": [],
+		"type": "HttpServer",
+		"typeProperties": {
+			"url": "https://cdn.rebrickable.com/media/downloads/",
+			"enableServerCertificateValidation": true,
+			"authenticationType": "Anonymous"
+		}
+	}
+}

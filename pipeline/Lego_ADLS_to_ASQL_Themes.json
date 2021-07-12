@@ -1,0 +1,35 @@
+{
+	"name": "Lego_ADLS_to_ASQL_Themes",
+	"properties": {
+		"description": "Lego csv file to Asql table Theams",
+		"activities": [
+			{
+				"name": "DF_adlsToASQL",
+				"type": "ExecuteDataFlow",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "1.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": true,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataflow": {
+						"referenceName": "DF_adlsToASQL",
+						"type": "DataFlowReference"
+					},
+					"compute": {
+						"coreCount": 8,
+						"computeType": "General"
+					},
+					"traceLevel": "Fine"
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2021-07-11T09:45:09Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

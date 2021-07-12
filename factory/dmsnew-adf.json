@@ -1,0 +1,9 @@
+{
+	"name": "dmsnew-adf",
+	"location": "northcentralus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "04f9b4df-b27a-4963-b31f-b36f3cbd6151",
+		"tenantId": "5b42918f-b2de-419e-8461-b1cddcddf93b"
+	}
+}

@@ -1,0 +1,33 @@
+{
+	"name": "DF_adlsToASQL",
+	"properties": {
+		"description": "load data from Azure Data Lake Storage, add a new column, then load data into the Azure SQL Database",
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "ADLSLegoThemes",
+						"type": "DatasetReference"
+					},
+					"name": "AdlsLegoThemes"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "ASQLLegoTheme",
+						"type": "DatasetReference"
+					},
+					"name": "ASQLLegoThemes"
+				}
+			],
+			"transformations": [
+				{
+					"name": "addloaddate"
+				}
+			],
+			"script": "source(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tlimit: 20,\n\tignoreNoFilesFound: false) ~> AdlsLegoThemes\nAdlsLegoThemes derive(load_date = currentDate()) ~> addloaddate\naddloaddate sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tdeletable:false,\n\tinsertable:true,\n\tupdateable:false,\n\tupsertable:false,\n\ttruncate:true,\n\tformat: 'table',\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true,\n\terrorHandlingOption: 'stopOnFirstError') ~> ASQLLegoThemes"
+		}
+	}
+}
